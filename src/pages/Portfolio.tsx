@@ -1,0 +1,84 @@
+import React from "react";
+import NavBar from "../components/NavBar";
+
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  repoLink: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "SamiraMod: A Risk of Rain 2 Mod",
+    description:
+      "Engineered and launched a character mod, achieving over 149,000 downloads on Thunderstore.io. Developed custom character abilities, animations, and gameplay mechanics using Risk of Rain 2's API and C#. Iteratively improved the mod by actively managing user feedback and resolving issues via the project's GitHub repository.",
+    image: "../src/assets/samira_background5.jpg",
+    repoLink: "https://thunderstore.io/c/risk-of-rain-2/p/CafeHo/SamiraMod/",
+  },
+  {
+    title: "Auto Battler Game Engine",
+    description:
+      "An auto battler roguelike. Field units, level them up, equip new items, evolve them, fight challenging enemies, on various terrains. This is a solo project that is currently a work in progress.",
+    image: "../src/assets/autobattler.png",
+    repoLink: "https://github.com/zidaneho/auto-battler",
+  },
+  {
+    title: "Steam Review Analysis Tool",
+    description:
+      "Created a full-stack research tool to provide game developers with competitive analysis of similar games on Steam. Utilized cosine similarity on review embeddings to identify and rank analogous games for market research and integrated the Gemini API to perform sentiment analysis and generate concise summaries of thousands of user reviews.",
+    image: "../src/assets/steamanalysis.png",
+    repoLink: "https://github.com/zidaneho/steam_analysis",
+  },
+  {
+    title: "Lab 30",
+    description:
+      "Find yourself immersed in a dark lab full of dangerous monsters. Avoid them and find a way out of the lab! This project was apart of UCSD VGDC's Tritonware kickoff in Fall 2024, made by 5 members to design and deliver the project within 2 weeks.",
+    image: "../src/assets/lab30tritonware.png",
+    repoLink: "https://github.com/zidaneho/TritonWare30",
+  },
+  {
+    title: "Lunar Learning",
+    description:
+      "Lunar Learning is an interactive, space-themed science game designed specifically to engage elementary school students with learning disabilities. This project is apart of UCSD ACM's DiamondHacks 2025, created by a team of 4. I helped contribute to this project by designing the UI and page.",
+    image: "../src/assets/lunarlearning.png",
+    repoLink: "https://github.com/zidaneho/mission_learn",
+  },
+];
+
+const Portfolio: React.FC = () => {
+  return (
+    <div className="w-full justify-center pt-4 flex flex-col bg-black">
+      <NavBar includeHome={true}></NavBar>
+      <div className="container mx-auto p-4">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className={`flex items-center justify-center my-8 ${
+              (index + 1) % 2 === 0 ? "flex-row-reverse" : ""
+            }`}
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-1/2 h-auto object-cover rounded-lg shadow-lg"
+            />
+            <div className="w-1/2 p-6">
+              <h2 className="font-bold text-2xl mb-2">{project.title}</h2>
+              <p className="text-base">{project.description}</p>
+              <div className="pt-4 pb-2">
+                <a href={project.repoLink} className=" rounded-lg">
+                  <button className="flex flex-row items-center gap-1">
+                    <p className="text-xs">View Repository</p>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Portfolio;
