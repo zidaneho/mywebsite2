@@ -1,4 +1,21 @@
 @import "tailwindcss";
+
+@layer utilities {
+  @keyframes fade-in-slide {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+}
+.animate-fade-in-slide {
+  animation: fade-in-slide 0.5s ease-out both;
+}
+
 :root {
   font-family: "Karla", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -7,7 +24,7 @@
   font-style: normal;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: #f8f8ff;
   background-color: rgba(0, 0, 0, 1);
 
   font-synthesis: none;
@@ -29,7 +46,6 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
- 
 }
 
 h1 {
