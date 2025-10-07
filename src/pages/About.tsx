@@ -3,7 +3,7 @@ import myselfLoLPark from "../assets/myself-LoLPark.png"
 
 function About() {
   return (
-    <div className="flex flex-col w-full h-full mt-4 items-center">
+    <div className="flex flex-col w-full h-full min-h-180 mt-4 items-center">
       <NavBar includeHome={true}></NavBar>
       <div className="flex w-[90%] p-10 gap-12">
         <img src={myselfLoLPark} className="w-80"></img>
